@@ -1,0 +1,37 @@
+  if(runAnimationSequence)
+  {
+     if(mainBodyPosition_animationBlendFactor >= 0.0f && mainBodyPosition_animationBlendFactor <= 1.0f)
+     {
+         mainBodyPosition[0]           =      mainBodyPosition_MOVE_FRAMEA[0]     
+                                       * (1 - mainBodyPosition_animationBlendFactor) 
+                                       +      mainBodyPosition_MOVE_FRAMEB[0]     
+                                       *      mainBodyPosition_animationBlendFactor;        
+        
+         mainBodyPosition[1]           =      mainBodyPosition_MOVE_FRAMEA[1]     
+                                       * (1 - mainBodyPosition_animationBlendFactor) 
+                                       +      mainBodyPosition_MOVE_FRAMEB[1]     
+                                       *      mainBodyPosition_animationBlendFactor; 
+        
+         mainBodyPosition[2]           =      mainBodyPosition_MOVE_FRAMEA[2]     
+                                       * (1 - mainBodyPosition_animationBlendFactor) 
+                                       +      mainBodyPosition_MOVE_FRAMEB[2]     
+                                       *      mainBodyPosition_animationBlendFactor;
+     }
+     if(mainBodyPosition_animationBlendFactor >= 1.0f)
+     {
+        mainBodyPosition_setSelection ++;
+        mainBodyPosition_animationBlendFactor = 0.0f;
+     }
+     if(mainBodyPosition_setSelection == mainBodyPosition_setSelectionLimit + 1)
+     {
+        mainBodyPosition_setSelection = 1;
+     }   
+     
+     
+       
+     mainBodyPosition_animationBlendFactor += mainBodyPosition_FRAME_TIME_01 * runSlowMotion;
+    
+
+  
+     
+//----------------------------------------------------------------------------------------------------------------------------------   
